@@ -8,8 +8,8 @@ begin
     v2=a->tau_types
     printVarSummary(v2)
     v2 = v2*0.01+225
-     v2 = where(v2.lt.0,9999,v2)
-     v2@_FillValue = 9999
+    v2 = where(v2.lt.0,9999,v2)
+    v2@_FillValue = 9999
     ; print(min(v2(5,90:150,70:150)))
     ; print(max(v2(5,90:150,70:150)))
     ; print(v2(5,90:150,70:150))
@@ -17,7 +17,7 @@ begin
 
     wks=gsn_open_wks("eps","tau_4")
     gsn_define_colormap(wks,"GMT_cool")
-     res                 = True 
+    res                 = True 
     res@gsnDraw         = False                   
     res@gsnFrame        = False  
     res@gsnSpreadColors = True  
@@ -38,7 +38,7 @@ begin
     res@mpOutlineSpecifiers                  = (/"China:states","Taiwan"/)
     res@gsnAddCyclic = False
     
-     plot=new((/6/),"graphic")
+    plot=new((/6/),"graphic")
 
     
     res@tiMainString    =""   
@@ -55,7 +55,7 @@ begin
     ; res@cnLevels =  (/-0.5,-0.4,-0.3,-0.2,-0.1,0,0.1,0.2,0.3,0.4,0.5/)
     plot(0)=gsn_csm_contour_map(wks,v2(0,:,:),res)
 
-        res@tiMainString    =""   
+    res@tiMainString    =""   
     res@gsnRightString = "(b)"
     res@gsnRightStringFontHeightF  = 0.02
     res@gsnLeftString = "" 
@@ -85,7 +85,7 @@ begin
     plot(2)=gsn_csm_contour_map(wks,v2(2,:,:),res)
 
 
-        res@tiMainString    =""   
+    res@tiMainString    =""   
     res@gsnRightString = "(d)"
     res@gsnRightStringFontHeightF  = 0.02
     res@gsnLeftString = "" 
@@ -100,7 +100,7 @@ begin
     plot(3)=gsn_csm_contour_map(wks,v2(3,:,:),res)
 
 
-        res@tiMainString    =""   
+    res@tiMainString    =""   
     res@gsnRightString = "(e)"
     res@gsnRightStringFontHeightF  = 0.02
     res@gsnLeftString = "" 
@@ -115,7 +115,7 @@ begin
     plot(4)=gsn_csm_contour_map(wks,v2(4,:,:),res)
 
 
-        res@tiMainString    =""   
+    res@tiMainString    =""   
     res@gsnRightString = "(f)"
     res@gsnRightStringFontHeightF  = 0.02
     res@gsnLeftString = "" 
@@ -126,8 +126,8 @@ begin
     ;  res@cnMinLevelValF=1
     ;  res@cnMaxLevelValF=20
     ;  res@cnLevelSpacingF = 1
-     ; res@cnLevelSelectionMode = "ExplicitLevels"
-     ; res@cnLevels =  (/2,4,6,8,10,12,14,16,18,20/)
+    ; res@cnLevelSelectionMode = "ExplicitLevels"
+    ; res@cnLevels =  (/2,4,6,8,10,12,14,16,18,20/)
     plot(5)=gsn_csm_contour_map(wks,v2(5,:,:),res)
 
     gsn_panel(wks,plot,(/2,3/),True)
